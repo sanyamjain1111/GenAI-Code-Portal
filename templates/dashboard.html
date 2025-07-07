@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Prompt</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<style>
+    nav {
+        background-color: #444;  
+        padding: 10px 15px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 15px; 
+    }
+    
+    nav a {
+        text-decoration: none;
+    }
+    
+    nav button {
+        background-color: #fff; 
+        color: #444;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    nav button:hover {
+        background-color: #f0f0f0; 
+        color: #000;
+    }
+    .logout
+    {
+       margin-left: 70%;
+    }
+    
+
+</style>
+<body>
+    <nav> 
+        <a href="/dashboard"><button>Home</button></a>
+        <a href="{{ url_for('pastcodes') }}"><button>Stored Codes</button></a>
+        <a href="/profile"><button>Profile</button></a>
+        <a href="/logout" class="logout"><button style="background-color: red; color: white;" >Logout</button></a>
+    </nav>
+    
+    <div class="chat-container">
+        <h2>Code Prompt</h2>
+        <div id="chat-box"></div>
+        <form id="chat-form" onsubmit="event.preventDefault(); sendMessage();">
+            <input type="text" id="user-input" placeholder="Type a message..." autofocus>
+            <button type="submit" id="send-button" class="button">Send</button>
+        </form>
+        
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

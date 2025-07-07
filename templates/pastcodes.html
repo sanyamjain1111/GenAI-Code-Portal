@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Codes</title>
+</head>
+<style>
+    nav {
+        background-color: #444; 
+        padding: 10px 15px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 15px; 
+    }
+    
+    nav a {
+        text-decoration: none;
+    }
+    
+    nav button {
+        background-color: #fff; 
+        color: #444; 
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    nav button:hover {
+        background-color: #f0f0f0; 
+        color: #000;
+    }
+    .logout
+    {
+       margin-left: 70%;
+    }
+    .body{
+        margin-left: 2%;
+        color: #000;
+    }
+
+.container {
+    width: 60%;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: rgba(255, 255, 255, 0.1);
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.download-btn {
+    display: inline-block;
+    background-color: #a35f4e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.download-btn:hover {
+    background-color: #e79789;
+}
+
+
+</style>
+<body>
+    <nav> 
+        <a href="/dashboard"><button>Home</button></a>
+        <a href="{{ url_for('pastcodes') }}"><button>Stored Codes</button></a>
+        <a href="/profile"><button>Profile</button></a>
+        <a href="/logout" class="logout"><button style="background-color: red; color: white;" >Logout</button></a>
+    </nav><div class="container">
+        <h2>Your Stored Code Queries</h2>
+        <a href="/download-pdf" class="download-btn">Download PDF</a>
+        <ul>
+            {% for query in codes %}
+                <li>
+                    <strong>Query:</strong> {{ query.prompt }} <br>
+                    <strong>Response:</strong> <pre>{{ query.response }}</pre>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+  
+</body>
+</html>

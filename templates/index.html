@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Query Portal</title>
+</head>
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #2c3e50, #4ca1af);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.login-btn {
+    display: inline-block;
+    background-color: #ff5e62;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #ff3b3f;
+}
+
+</style>
+<body>
+    <div class="container">
+        <h1>Welcome to Code Query Portal</h1>
+        <p>Your AI-powered assistant for coding solutions!</p>
+        <a href="{{ url_for('auth.login') }}" class="login-btn">Login with Google</a>
+    </div>
+</body>
+</html>
